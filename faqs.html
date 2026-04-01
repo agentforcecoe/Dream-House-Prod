@@ -1113,26 +1113,24 @@
   sections.forEach(s => observer.observe(s));
 </script>
 <script type='text/javascript'>
-  function initEmbeddedMessaging() {
-    try {
-      embeddedservice_bootstrap.settings.language = 'en_US';
-      embeddedservice_bootstrap.init(
-        '00DKa00000Uxd6c',
-        'Dream_House_Website',
-        'https://ap1763032291393.my.site.com/ESWDreamHouseWebsite1774503133873',
-        {
-          scrt2URL: 'https://ap1763032291393.my.salesforce-scrt.com'
-        }
-      );
-    } catch (err) {
-      console.error('Error loading Embedded Messaging: ', err);
-    }
-  };
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DHs00000T7zOn',
+				'Dream_House_Website',
+				'https://ap1773826770010.my.site.com/ESWDreamHouseWebsite1775053711068',
+				{
+					scrt2URL: 'https://ap1773826770010.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
 </script>
-<script
-  type='text/javascript'
-  src='https://ap1763032291393.my.site.com/ESWDreamHouseWebsite1774503133873/assets/js/bootstrap.min.js'
-  onload='initEmbeddedMessaging()'>
-</script>
+<script type='text/javascript' src='https://ap1773826770010.my.site.com/ESWDreamHouseWebsite1775053711068/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 </body>
 </html>
