@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions — Dream House Premium Real Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D09A;
+    --gold-pale: #F5EDD5;
+    --deep: #0E1B14;
+    --dark: #162210;
+    --smoke: #F4F1EC;
+    --white: #FDFCF9;
+    --text: #2A2A2A;
+    --muted: #7A7A6E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 64px;
+    height: 76px;
+    background: rgba(10,20,14,0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+  }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .logo-mark svg { width: 40px; height: 40px; }
+  .logo-text { display: flex; flex-direction: column; line-height: 1; }
+  .logo-text span:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600; letter-spacing: 2px; color: var(--gold);
+  }
+  .logo-text span:last-child {
+    font-size: 9px; letter-spacing: 4px; font-weight: 300;
+    color: var(--gold-light); text-transform: uppercase; margin-top: 2px;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 36px; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 13px; letter-spacing: 1.5px; font-weight: 400;
+    text-transform: uppercase; transition: color .25s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--deep) !important;
+    padding: 10px 22px; font-weight: 500 !important;
+    transition: background .25s, transform .2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+  .nav-hamburger {
+    display: none; flex-direction: column; justify-content: center; align-items: center;
+    gap: 5px; background: none; border: none; cursor: pointer;
+    width: 40px; height: 40px; padding: 4px; z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block; width: 24px; height: 2px; background: var(--gold-light);
+    transition: transform .3s, opacity .3s, width .3s; transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    background: var(--deep);
+    padding: 160px 72px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 60%, rgba(201,168,76,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, transparent 100%);
+    box-shadow: 0 0 20px rgba(201,168,76,0.4);
+  }
+  .page-hero-inner { position: relative; z-index: 2; max-width: 760px; }
+  .page-eyebrow {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+  }
+  .page-eyebrow::before {
+    content: ''; display: block; width: 44px; height: 1px; background: var(--gold);
+  }
+  .page-eyebrow span {
+    font-size: 11px; letter-spacing: 5px; font-weight: 500;
+    color: var(--gold); text-transform: uppercase;
+  }
+  .page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 300; line-height: 1.08; color: var(--white);
+    letter-spacing: -1px; margin-bottom: 20px;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--gold); }
+  .page-hero-meta {
+    display: flex; gap: 32px; align-items: center; flex-wrap: wrap;
+  }
+  .page-hero-meta span {
+    font-size: 13px; color: rgba(255,255,255,0.45); letter-spacing: 0.5px;
+  }
+  .page-hero-meta span strong { color: var(--gold-light); font-weight: 500; }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    display: flex; align-items: center; gap: 10px;
+    padding: 18px 72px;
+    background: var(--smoke);
+    border-bottom: 1px solid rgba(44,62,45,0.08);
+  }
+  .breadcrumb a {
+    font-size: 12px; color: var(--gold); text-decoration: none;
+    letter-spacing: 1px; text-transform: uppercase; transition: color .2s;
+  }
+  .breadcrumb a:hover { color: var(--deep); }
+  .breadcrumb-sep { font-size: 11px; color: var(--muted); }
+  .breadcrumb-current {
+    font-size: 12px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  /* ── CONTENT LAYOUT ── */
+  .content-wrap {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 0;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 72px 72px 100px;
+    align-items: start;
+  }
+
+  /* ── SIDEBAR TOC ── */
+  .toc {
+    position: sticky; top: 100px;
+    padding-right: 48px;
+    border-right: 1px solid rgba(44,62,45,0.10);
+  }
+  .toc-title {
+    font-size: 10px; letter-spacing: 4px; font-weight: 600;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .toc ul { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .toc ul li a {
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    display: block; padding: 8px 0 8px 14px;
+    border-left: 2px solid transparent;
+    transition: color .2s, border-color .2s, padding-left .2s;
+    line-height: 1.4;
+  }
+  .toc ul li a:hover {
+    color: var(--deep); border-color: var(--gold); padding-left: 18px;
+  }
+  .toc ul li a.active {
+    color: var(--deep); border-color: var(--gold); font-weight: 500;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .doc-content {
+    padding-left: 64px;
+  }
+  .doc-intro {
+    font-size: 16px; line-height: 1.85; color: var(--muted);
+    max-width: 680px; margin-bottom: 64px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(44,62,45,0.08);
+  }
+  .doc-section {
+    margin-bottom: 56px;
+    scroll-margin-top: 110px;
+  }
+  .doc-section-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px; color: var(--gold); letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 10px; display: block;
+  }
+  .doc-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 400; color: var(--deep);
+    line-height: 1.15; margin-bottom: 20px;
+    letter-spacing: -0.3px;
+  }
+  .doc-section p {
+    font-size: 15px; line-height: 1.85; color: var(--text);
+    margin-bottom: 16px; max-width: 680px;
+  }
+  .doc-section p:last-child { margin-bottom: 0; }
+  .doc-section ul, .doc-section ol {
+    margin: 16px 0 20px 0; padding-left: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 10px; max-width: 680px;
+  }
+  .doc-section ul li, .doc-section ol li {
+    font-size: 15px; line-height: 1.75; color: var(--text);
+    padding-left: 24px; position: relative;
+  }
+  .doc-section ul li::before {
+    content: '◆';
+    position: absolute; left: 0; top: 2px;
+    font-size: 7px; color: var(--gold); line-height: 1.8;
+  }
+  .doc-section ol { counter-reset: item; }
+  .doc-section ol li { counter-increment: item; }
+  .doc-section ol li::before {
+    content: counter(item) ".";
+    position: absolute; left: 0;
+    font-size: 13px; color: var(--gold); font-weight: 600; line-height: 1.75;
+  }
+  .doc-divider {
+    height: 1px;
+    background: linear-gradient(to right, rgba(201,168,76,0.3), transparent);
+    margin-bottom: 56px;
+  }
+  .highlight-box {
+    background: var(--gold-pale);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    margin: 24px 0;
+    max-width: 680px;
+  }
+  .highlight-box p {
+    font-size: 14px; line-height: 1.75; color: var(--deep);
+    margin-bottom: 0;
+  }
+  .highlight-box strong { color: var(--deep); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep); padding: 80px 72px 40px;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px;
+    padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .footer-brand p {
+    font-size: 15px; line-height: 1.85; color: rgba(255,255,255,0.45);
+    margin-top: 20px; max-width: 300px;
+  }
+  .footer-col h4 {
+    font-size: 11px; letter-spacing: 3px; font-weight: 500;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 22px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul li a {
+    font-size: 14px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color .2s;
+  }
+  .footer-col ul li a:hover { color: var(--white); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center; padding-top: 36px;
+  }
+  .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.28); }
+  .footer-bottom span { font-size: 13px; color: rgba(255,255,255,0.28); }
+  .footer-bottom a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color .2s; }
+  .footer-bottom a:hover { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .content-wrap { grid-template-columns: 1fr; padding: 56px 40px 80px; }
+    .toc { display: none; }
+    .doc-content { padding-left: 0; }
+    .page-hero { padding: 140px 40px 64px; }
+    .breadcrumb { padding: 16px 40px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-brand { grid-column: 1 / -1; }
+    footer { padding: 56px 40px 32px; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      position: fixed; top: 76px; left: 0; right: 0;
+      background: rgba(10,20,14,0.98); backdrop-filter: blur(20px);
+      flex-direction: column; align-items: stretch; gap: 0; padding: 0;
+      max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .nav-links.open { max-height: 420px; padding: 12px 0 20px; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 15px 28px; font-size: 14px; border-bottom: 1px solid rgba(201,168,76,0.07); }
+    .nav-links li:last-child a { border-bottom: none; }
+    .nav-cta { margin: 12px 28px 0 !important; padding: 13px 22px !important; text-align: center; }
+    .page-hero { padding: 130px 24px 56px; }
+    .breadcrumb { padding: 14px 24px; }
+    .content-wrap { padding: 48px 24px 72px; }
+    .footer-top { grid-template-columns: 1fr; }
+    footer { padding: 48px 24px 28px; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,3 37,13 37,27 20,37 3,27 3,13" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+        <polygon points="20,9 31,15.5 31,24.5 20,31 9,24.5 9,15.5" fill="#C9A84C" fill-opacity="0.15"/>
+        <path d="M13 26 L13 18 L20 13 L27 18 L27 26" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+        <rect x="17" y="20" width="6" height="6" fill="#C9A84C" fill-opacity="0.7"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span>Dream House</span>
+      <span>Premium Real Estate</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gpt.html">Properties</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Locations</a></li>
+    <li><a href="#" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow"><span>Legal</span></div>
+    <h1>Terms &amp; <em>Conditions</em></h1>
+    <div class="page-hero-meta">
+      <span><strong>Effective Date:</strong> 1 January 2025</span>
+      <span><strong>Last Updated:</strong> 1 June 2025</span>
+      <span><strong>Version:</strong> 2.0</span>
+    </div>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="breadcrumb-sep">›</span>
+  <span class="breadcrumb-current">Terms &amp; Conditions</span>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+  <!-- SIDEBAR TOC -->
+  <aside class="toc">
+    <div class="toc-title">Contents</div>
+    <ul>
+      <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+      <li><a href="#services">2. Our Services</a></li>
+      <li><a href="#eligibility">3. Eligibility</a></li>
+      <li><a href="#listings">4. Property Listings</a></li>
+      <li><a href="#intellectual">5. Intellectual Property</a></li>
+      <li><a href="#user-conduct">6. User Conduct</a></li>
+      <li><a href="#transactions">7. Property Transactions</a></li>
+      <li><a href="#disclaimer">8. Disclaimers</a></li>
+      <li><a href="#liability">9. Limitation of Liability</a></li>
+      <li><a href="#indemnification">10. Indemnification</a></li>
+      <li><a href="#privacy">11. Privacy</a></li>
+      <li><a href="#governing">12. Governing Law</a></li>
+      <li><a href="#changes">13. Changes to Terms</a></li>
+      <li><a href="#contact">14. Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <!-- DOCUMENT -->
+  <main class="doc-content">
+
+    <p class="doc-intro">
+      Welcome to Dream House Premium Real Estate. These Terms and Conditions govern your use of our website, services, and platforms. By accessing or using our services, you agree to be bound by these Terms. Please read them carefully before proceeding.
+    </p>
+
+    <!-- 1 -->
+    <div class="doc-section" id="acceptance">
+      <span class="doc-section-num">01</span>
+      <h2>Acceptance of Terms</h2>
+      <p>By accessing, browsing, or using the Dream House Premium Real Estate website (the "Site") or any of our related services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions ("Terms") and our Privacy Notice.</p>
+      <p>If you do not agree with any part of these Terms, you must discontinue use of the Site and our services immediately. These Terms constitute a legally binding agreement between you and Dream House Premium Real Estate, Inc., a corporation registered and operating under the laws of the Republic of the Philippines.</p>
+      <div class="highlight-box">
+        <p><strong>Important:</strong> Your continued use of our Site following any update to these Terms constitutes your acceptance of the revised Terms. We recommend reviewing this page periodically.</p>
+      </div>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 2 -->
+    <div class="doc-section" id="services">
+      <span class="doc-section-num">02</span>
+      <h2>Our Services</h2>
+      <p>Dream House Premium Real Estate provides the following services through its website and authorised channels:</p>
+      <ul>
+        <li>Curated real estate listings of residential and mixed-use properties across the Philippines</li>
+        <li>Property search, filtering, and enquiry tools</li>
+        <li>Consultation and advisory services connecting buyers with licenced real estate brokers and agents</li>
+        <li>Market insights, property value information, and editorial content</li>
+        <li>Developer partnership programmes and property investment guidance</li>
+      </ul>
+      <p>Our services are intended for informational and facilitation purposes. Dream House acts as a real estate marketing and brokerage firm. We are not a bank, financial institution, or legal advisory firm, and nothing on this Site constitutes financial, investment, or legal advice.</p>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 3 -->
+    <div class="doc-section" id="eligibility">
+      <span class="doc-section-num">03</span>
+      <h2>Eligibility</h2>
+      <p>To use our services, you must:</p>
+      <ul>
+        <li>Be at least 18 years of age or the age of majority in your jurisdiction</li>
+        <li>Have the legal capacity to enter into binding contracts</li>
+        <li>Not be prohibited from accessing or using the Site under applicable Philippine law or the laws of your country of residence</li>
+      </ul>
+      <p>Foreign nationals interested in property acquisition in the Philippines should note that certain restrictions on land ownership apply under Philippine law (Republic Act No. 7042, as amended). Our agents can guide you on permissible ownership structures such as condominium units, long-term leases, and corporate vehicles.</p>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 4 -->
+    <div class="doc-section" id="listings">
+      <span class="doc-section-num">04</span>
+      <h2>Property Listings</h2>
+      <p>All property listings published on the Site are provided for general marketing purposes. While we strive to ensure accuracy, Dream House does not warrant or guarantee that:</p>
+      <ul>
+        <li>Listing details (price, availability, specifications, floor areas) are complete, accurate, or current at the time of viewing</li>
+        <li>Rendered images, artist impressions, or virtual tours are an exact representation of the final delivered property</li>
+        <li>Properties remain available after the time of enquiry</li>
+      </ul>
+      <p>Prices listed in Philippine Peso (₱) are indicative and subject to change without notice. Final pricing is determined by the developer or seller and confirmed through a formal purchase agreement. All prices are exclusive of applicable taxes, transfer fees, documentary stamp tax, and other government charges unless expressly stated.</p>
+      <div class="highlight-box">
+        <p><strong>Pre-Selling Properties:</strong> For off-plan or pre-selling developments, completion timelines are estimated by the developer and may be subject to delays. Dream House is not liable for delays in project delivery.</p>
+      </div>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 5 -->
+    <div class="doc-section" id="intellectual">
+      <span class="doc-section-num">05</span>
+      <h2>Intellectual Property</h2>
+      <p>All content on the Site — including but not limited to text, graphics, logos, photographs, video content, architectural renderings, and software — is the exclusive property of Dream House Premium Real Estate, Inc. or its licensors, and is protected by applicable intellectual property laws of the Philippines and international conventions.</p>
+      <p>You may not, without our prior written consent:</p>
+      <ul>
+        <li>Reproduce, copy, distribute, or republish any content from the Site</li>
+        <li>Use our trademarks, logos, or branding in any form</li>
+        <li>Scrape, crawl, or harvest data from the Site by automated means</li>
+        <li>Create derivative works based on Site content</li>
+        <li>Use property images or descriptions for commercial purposes</li>
+      </ul>
+      <p>Limited, non-commercial personal use (e.g. sharing a listing link) is permitted provided attribution to Dream House is maintained and the content is not altered.</p>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 6 -->
+    <div class="doc-section" id="user-conduct">
+      <span class="doc-section-num">06</span>
+      <h2>User Conduct</h2>
+      <p>When using our Site and services, you agree not to:</p>
+      <ul>
+        <li>Submit false, misleading, or fraudulent enquiries or information</li>
+        <li>Impersonate any person or entity, or misrepresent your identity or affiliation</li>
+        <li>Engage in any activity that disrupts, damages, or interferes with the Site's operation</li>
+        <li>Attempt to gain unauthorised access to any part of the Site or its underlying systems</li>
+        <li>Use the Site to transmit unsolicited commercial communications (spam)</li>
+        <li>Post or transmit content that is unlawful, defamatory, threatening, or offensive</li>
+        <li>Use our services for money laundering, fraud, or any activity that violates Philippine law including the Anti-Money Laundering Act (Republic Act No. 9160, as amended)</li>
+      </ul>
+      <p>We reserve the right to suspend or permanently deny access to any user who violates these conduct requirements, without notice and without liability.</p>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 7 -->
+    <div class="doc-section" id="transactions">
+      <span class="doc-section-num">07</span>
+      <h2>Property Transactions</h2>
+      <p>Dream House facilitates introductions between buyers and property sellers or developers. Any transaction arising from such an introduction is governed by a separate Sale and Purchase Agreement, Reservation Agreement, or Contract to Sell entered into between the buyer and seller or developer.</p>
+      <p>You acknowledge and agree that:</p>
+      <ul>
+        <li>Dream House is not a party to any transaction between a buyer and a developer or seller</li>
+        <li>Reservation fees, down payments, and purchase payments are made directly to the developer or seller, not to Dream House</li>
+        <li>You are solely responsible for conducting your own due diligence before committing to any purchase</li>
+        <li>Our agents provide guidance but are not legal counsel — independent legal advice is recommended for all property transactions</li>
+        <li>Real estate brokerage services provided by Dream House agents are rendered under valid PRC licences as required under Republic Act No. 9646 (Real Estate Service Act of the Philippines)</li>
+      </ul>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 8 -->
+    <div class="doc-section" id="disclaimer">
+      <span class="doc-section-num">08</span>
+      <h2>Disclaimers</h2>
+      <p>The Site and all information, content, and services provided herein are offered on an <strong>"as is" and "as available"</strong> basis without warranties of any kind, express or implied, including but not limited to:</p>
+      <ul>
+        <li>Implied warranties of merchantability or fitness for a particular purpose</li>
+        <li>Warranties that the Site will be uninterrupted, error-free, or free of viruses</li>
+        <li>Warranties regarding the accuracy, completeness, or timeliness of content</li>
+      </ul>
+      <p>Market data, price trends, and investment projections published on the Site are sourced from third-party data providers and are provided for indicative purposes only. Past property performance is not indicative of future results. Real estate investment carries inherent risk and you should seek independent financial advice before making any investment decision.</p>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 9 -->
+    <div class="doc-section" id="liability">
+      <span class="doc-section-num">09</span>
+      <h2>Limitation of Liability</h2>
+      <p>To the fullest extent permitted by applicable law, Dream House Premium Real Estate, Inc. and its directors, officers, employees, agents, and affiliates shall not be liable for any:</p>
+      <ul>
+        <li>Direct, indirect, incidental, special, consequential, or punitive damages</li>
+        <li>Loss of profits, revenue, data, goodwill, or anticipated savings</li>
+        <li>Losses arising from your reliance on property listings, price information, or market data published on the Site</li>
+        <li>Losses arising from developer delays, cancellations, or project modifications</li>
+        <li>Damages resulting from unauthorised access to or alteration of your data</li>
+      </ul>
+      <p>This limitation applies whether the claim is based in contract, tort (including negligence), strict liability, or any other legal theory, even if Dream House has been advised of the possibility of such damages. In jurisdictions that do not allow certain limitations of liability, our liability shall be limited to the maximum extent permitted by law.</p>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 10 -->
+    <div class="doc-section" id="indemnification">
+      <span class="doc-section-num">10</span>
+      <h2>Indemnification</h2>
+      <p>You agree to defend, indemnify, and hold harmless Dream House Premium Real Estate, Inc. and its officers, directors, employees, and agents from and against any and all claims, damages, obligations, losses, liabilities, costs, and expenses (including reasonable legal fees) arising from:</p>
+      <ul>
+        <li>Your use of the Site or services in violation of these Terms</li>
+        <li>Any false or misleading information you have provided to us</li>
+        <li>Your violation of any third-party rights, including intellectual property or privacy rights</li>
+        <li>Any transaction you enter into on the basis of information obtained from our Site</li>
+      </ul>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 11 -->
+    <div class="doc-section" id="privacy">
+      <span class="doc-section-num">11</span>
+      <h2>Privacy</h2>
+      <p>Your use of the Site is also governed by our <a href="privacy.html" style="color:var(--gold); text-decoration:none; border-bottom: 1px solid rgba(201,168,76,0.4);">Privacy Notice</a>, which is incorporated into these Terms by reference. Our Privacy Notice explains how we collect, use, store, and protect your personal data in accordance with the Philippine Data Privacy Act of 2012 (Republic Act No. 10173).</p>
+      <p>By using our services, you consent to the collection and use of your personal information as described in our Privacy Notice.</p>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 12 -->
+    <div class="doc-section" id="governing">
+      <span class="doc-section-num">12</span>
+      <h2>Governing Law &amp; Dispute Resolution</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the Republic of the Philippines, without regard to its conflict of law provisions.</p>
+      <p>Any dispute, controversy, or claim arising out of or relating to these Terms or the breach thereof shall first be subject to good-faith negotiation between the parties for a period of thirty (30) days. If unresolved, the dispute shall be submitted to the exclusive jurisdiction of the competent courts of Makati City, Metro Manila, Philippines.</p>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 13 -->
+    <div class="doc-section" id="changes">
+      <span class="doc-section-num">13</span>
+      <h2>Changes to Terms</h2>
+      <p>Dream House reserves the right to modify, update, or replace these Terms at any time at our sole discretion. Material changes will be communicated via a notice on the Site homepage or by email to registered users at least fourteen (14) days prior to the effective date of the change.</p>
+      <p>Your continued use of the Site after the effective date of any revision constitutes your acceptance of the updated Terms. If you do not agree to the revised Terms, you must stop using the Site.</p>
+    </div>
+    <div class="doc-divider"></div>
+
+    <!-- 14 -->
+    <div class="doc-section" id="contact">
+      <span class="doc-section-num">14</span>
+      <h2>Contact Us</h2>
+      <p>If you have any questions, concerns, or requests relating to these Terms and Conditions, please contact us at:</p>
+      <div class="highlight-box">
+        <p><strong>Dream House Premium Real Estate, Inc.</strong><br>
+        6F Ayala Tower One, Ayala Avenue, Makati City, Metro Manila, Philippines 1226<br><br>
+        <strong>Phone:</strong> +63 2 8888 0000<br>
+        <strong>Email:</strong> legal@dreamhouse.ph<br>
+        <strong>Business Hours:</strong> Monday – Saturday, 9:00 AM – 6:00 PM (PST)</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,3 37,13 37,27 20,37 3,27 3,13" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <polygon points="20,9 31,15.5 31,24.5 20,31 9,24.5 9,15.5" fill="#C9A84C" fill-opacity="0.15"/>
+            <path d="M13 26 L13 18 L20 13 L27 18 L27 26" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <rect x="17" y="20" width="6" height="6" fill="#C9A84C" fill-opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span>Dream House</span>
+          <span>Premium Real Estate</span>
+        </div>
+      </a>
+      <p>Guiding Filipinos and global investors to the finest residences across the Philippine archipelago since 2014.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Properties</h4>
+      <ul>
+        <li><a href="gpt.html">All Properties</a></li>
+        <li><a href="gpt.html">Metro Manila</a></li>
+        <li><a href="gpt.html">Cebu</a></li>
+        <li><a href="gpt.html">Davao</a></li>
+        <li><a href="gpt.html">Tagaytay</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Agents</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+        <li><a href="privacy.html">Privacy Notice</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Dream House Premium Real Estate, Inc. All rights reserved.</p>
+    <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="#">Sitemap</a></span>
+  </div>
+</footer>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // Active TOC highlight on scroll
+  const sections = document.querySelectorAll('.doc-section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

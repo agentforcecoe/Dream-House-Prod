@@ -1,0 +1,2767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properties — Dream House Premium Real Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  /* chat icon */
+
+/* chat icon */
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D09A;
+    --gold-pale: #F5EDD5;
+    --deep: #0E1B14;
+    --dark: #162210;
+    --mid: #2C3E2D;
+    --smoke: #F4F1EC;
+    --white: #FDFCF9;
+    --text: #2A2A2A;
+    --muted: #7A7A6E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px;
+    height: 72px;
+    background: rgba(14,27,20,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .logo-mark { width: 40px; height: 40px; }
+  .logo-mark svg { width: 40px; height: 40px; }
+  .logo-text { display: flex; flex-direction: column; line-height: 1; }
+  .logo-text span:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600; letter-spacing: 2px; color: var(--gold);
+  }
+  .logo-text span:last-child {
+    font-size: 9px; letter-spacing: 4px; font-weight: 300;
+    color: var(--gold-light); text-transform: uppercase; margin-top: 2px;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 36px; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 13px; letter-spacing: 1.5px; font-weight: 400;
+    text-transform: uppercase; transition: color .25s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--deep) !important;
+    padding: 10px 22px; font-weight: 500 !important;
+    transition: background .25s, transform .2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding-top: 72px;
+    background: linear-gradient(135deg, #0E1B14 0%, #1A2F1C 60%, #0D2418 100%);
+    position: relative; overflow: hidden;
+  }
+  .page-header-pattern {
+    position: absolute; inset: 0; opacity: .04;
+    background-image: repeating-linear-gradient(
+      45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%
+    );
+    background-size: 40px 40px;
+  }
+  .page-header-glow {
+    position: absolute; top: -30%; right: -5%;
+    width: 50vw; height: 50vw;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-header-inner {
+    position: relative; z-index: 2;
+    padding: 64px 60px 60px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+  }
+  .page-header-eyebrow {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 18px;
+  }
+  .page-header-eyebrow span {
+    font-size: 11px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase;
+  }
+  .page-header-eyebrow::after {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: .5;
+  }
+  .page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 68px);
+    font-weight: 300; line-height: 1.05; color: var(--white);
+    letter-spacing: -0.5px;
+  }
+  .page-header h1 em { font-style: italic; color: var(--gold); }
+  .page-header-count {
+    text-align: right;
+  }
+  .page-header-count .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; font-weight: 300; color: var(--gold); line-height: 1;
+  }
+  .page-header-count .lbl {
+    font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,0.35);
+    text-transform: uppercase; margin-top: 4px;
+  }
+
+  /* ── FILTERS BAR ── */
+  .filters-bar {
+    background: var(--smoke);
+    border-bottom: 1px solid rgba(44,62,45,0.1);
+    padding: 20px 60px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .filter-label {
+    font-size: 11px; letter-spacing: 2px; color: var(--muted);
+    text-transform: uppercase; margin-right: 8px;
+  }
+  .filter-btn {
+    background: none; border: 1px solid rgba(44,62,45,0.2);
+    padding: 8px 18px; font-size: 11px; letter-spacing: 1.5px;
+    font-family: 'DM Sans', sans-serif;
+    text-transform: uppercase; color: var(--muted); cursor: pointer;
+    transition: all .2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--gold); border-color: var(--gold);
+    color: var(--deep);
+  }
+
+  /* ── PROPERTIES GRID ── */
+  .properties-section {
+    padding: 60px 60px 100px;
+    background: var(--smoke);
+  }
+  .props-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+
+  /* ── PROPERTY CARD ── */
+  .prop-card {
+    background: var(--white); overflow: hidden;
+    transition: transform .35s cubic-bezier(.22,.68,0,1.2), box-shadow .35s;
+    cursor: pointer;
+    position: relative;
+  }
+  .prop-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 28px 70px rgba(14,27,20,0.14);
+  }
+  .prop-img {
+    height: 230px; overflow: hidden; position: relative;
+  }
+  .prop-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .6s cubic-bezier(.22,.68,0,1.2);
+  }
+  .prop-card:hover .prop-img img { transform: scale(1.07); }
+  .prop-status {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--gold); color: var(--deep);
+    font-size: 10px; letter-spacing: 2px; font-weight: 500;
+    text-transform: uppercase; padding: 5px 12px;
+    z-index: 2;
+  }
+  .prop-status.pre { background: var(--deep); color: var(--gold); }
+  .prop-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(14,27,20,0.55) 0%, transparent 50%);
+    opacity: 0; transition: opacity .3s;
+    display: flex; align-items: flex-end; justify-content: center; padding-bottom: 24px;
+  }
+  .prop-card:hover .prop-overlay { opacity: 1; }
+  .prop-overlay-cta {
+    background: var(--gold); color: var(--deep);
+    font-size: 11px; letter-spacing: 2px; font-weight: 500;
+    text-transform: uppercase; padding: 10px 24px;
+    display: flex; align-items: center; gap: 8px;
+    border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: background .2s;
+  }
+  .prop-overlay-cta:hover { background: var(--gold-light); }
+  .prop-body { padding: 26px 24px 24px; }
+  .prop-location {
+    font-size: 11px; letter-spacing: 2px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .prop-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 400; color: var(--deep);
+    margin-bottom: 8px; line-height: 1.15;
+  }
+  .prop-price {
+    font-size: 14px; font-weight: 500; color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .prop-meta {
+    display: flex; gap: 16px; margin-bottom: 16px;
+    font-size: 12px; color: var(--muted); border-top: 1px solid rgba(44,62,45,0.07);
+    padding-top: 16px;
+  }
+  .prop-meta span { display: flex; align-items: center; gap: 5px; }
+  .prop-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-size: 10px; letter-spacing: 1px; padding: 4px 10px;
+    border: 1px solid rgba(44,62,45,0.15); color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* placeholder card */
+  .prop-card.placeholder {
+    border: 2px dashed rgba(44,62,45,0.15);
+    background: transparent;
+    cursor: default;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 380px;
+  }
+  .prop-card.placeholder:hover { transform: none; box-shadow: none; }
+  .placeholder-inner { text-align: center; padding: 40px; }
+  .placeholder-inner svg { opacity: .2; margin-bottom: 16px; }
+  .placeholder-inner p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 300; color: var(--muted);
+  }
+  .placeholder-inner span {
+    font-size: 11px; letter-spacing: 2px; color: var(--muted); opacity: .5;
+    text-transform: uppercase; margin-top: 8px; display: block;
+  }
+
+  /* ── MODAL OVERLAY ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(10,18,12,0.75);
+    backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .35s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  /* ── MODAL BOX ── */
+  .modal {
+    background: var(--white);
+    max-width: 980px; width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(30px) scale(0.98);
+    transition: transform .4s cubic-bezier(.22,.68,0,1.2);
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-pale) transparent;
+  }
+  .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
+  .modal-close {
+    position: sticky; top: 0; left: 0; right: 0; z-index: 10;
+    display: flex; justify-content: flex-end;
+    padding: 16px 20px 0;
+    background: linear-gradient(to bottom, var(--white) 60%, transparent);
+  }
+  .modal-close-btn {
+    background: var(--deep); border: none; cursor: pointer;
+    width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+  }
+  .modal-close-btn:hover { background: var(--mid); }
+  .modal-close-btn svg { stroke: var(--gold); }
+
+  /* Modal Hero Image */
+  .modal-hero {
+    position: relative; height: 360px; overflow: hidden; margin-top: -56px;
+  }
+  .modal-hero img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .modal-hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(14,27,20,0.7) 0%, transparent 55%);
+  }
+  .modal-hero-badge {
+    position: absolute; top: 24px; left: 28px;
+    background: var(--gold); color: var(--deep);
+    font-size: 10px; letter-spacing: 2px; font-weight: 500;
+    text-transform: uppercase; padding: 6px 14px;
+  }
+  .modal-hero-bottom {
+    position: absolute; bottom: 28px; left: 28px; right: 28px;
+  }
+  .modal-hero-location {
+    font-size: 11px; letter-spacing: 3px; color: var(--gold-light);
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .modal-hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300; color: var(--white); line-height: 1.1;
+  }
+
+  /* Modal Content */
+  .modal-content { padding: 36px 36px 48px; }
+
+  /* Price Bar */
+  .modal-price-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 24px;
+    background: var(--deep);
+    margin-bottom: 36px;
+  }
+  .modal-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; color: var(--gold);
+  }
+  .modal-price-label { font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.4); margin-top: 2px; text-transform: uppercase; }
+  .modal-enquire {
+    background: var(--gold); color: var(--deep); border: none;
+    padding: 12px 28px; font-size: 12px; letter-spacing: 2px;
+    font-weight: 500; text-transform: uppercase; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background .2s, transform .2s;
+  }
+  .modal-enquire:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* Description */
+  .modal-desc {
+    font-size: 15px; line-height: 1.85; color: var(--muted);
+    margin-bottom: 36px; border-left: 2px solid var(--gold);
+    padding-left: 20px;
+  }
+
+  /* Info Grid */
+  .modal-info-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: rgba(44,62,45,0.1);
+    margin-bottom: 36px;
+  }
+  .modal-info-cell {
+    background: var(--white); padding: 20px;
+  }
+  .modal-info-cell .lbl {
+    font-size: 10px; letter-spacing: 2px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .modal-info-cell .val {
+    font-size: 14px; color: var(--deep); font-weight: 400; line-height: 1.4;
+  }
+
+  /* Sections */
+  .modal-section { margin-bottom: 32px; }
+  .modal-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 400; color: var(--deep);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .modal-section-title::after {
+    content: ''; flex: 1; height: 1px; background: rgba(44,62,45,0.1);
+  }
+  .modal-tags-list {
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .modal-tag {
+    font-size: 12px; padding: 7px 14px;
+    border: 1px solid rgba(44,62,45,0.15); color: var(--text);
+    letter-spacing: 0.5px;
+  }
+  .modal-tag.gold {
+    background: var(--gold-pale); border-color: var(--gold);
+    color: var(--deep);
+  }
+
+  /* USP highlight */
+  .modal-usp {
+    background: var(--deep); padding: 28px 28px;
+    margin-bottom: 32px;
+    border-left: 3px solid var(--gold);
+  }
+  .modal-usp .usp-label {
+    font-size: 10px; letter-spacing: 3px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .modal-usp p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 300; color: var(--white);
+    line-height: 1.65; font-style: italic;
+  }
+
+  /* Payment terms */
+  .payment-steps {
+    display: flex; gap: 2px; margin-top: 4px;
+  }
+  .payment-step {
+    flex: 1; background: var(--smoke); padding: 16px;
+    border-top: 2px solid transparent;
+    transition: border-color .2s;
+  }
+  .payment-step:hover { border-color: var(--gold); }
+  .payment-step .pct {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; color: var(--gold);
+    line-height: 1;
+  }
+  .payment-step .desc {
+    font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.5;
+  }
+
+  /* Nearby */
+  .landmarks-list {
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .landmark {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--text);
+    padding: 8px 14px; background: var(--smoke);
+  }
+  .landmark::before {
+    content: '◈'; color: var(--gold); font-size: 10px;
+  }
+
+  /* Unique feature callout */
+  .unique-feature {
+    background: linear-gradient(135deg, var(--gold-pale) 0%, #fff 100%);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+  .unique-feature .uf-label {
+    font-size: 10px; letter-spacing: 3px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .unique-feature p {
+    font-size: 14px; color: var(--text); line-height: 1.75;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .7s, transform .7s; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── FOOTER (minimal) ── */
+  .page-footer {
+    background: var(--deep); padding: 40px 60px;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .page-footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
+  .page-footer span { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; align-items: center;
+    gap: 5px; background: none; border: none; cursor: pointer;
+    width: 40px; height: 40px; padding: 4px; z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--gold-light);
+    transition: transform .3s, opacity .3s, width .3s;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── RESPONSIVE: TABLET ── */
+  @media (max-width: 900px) {
+    /* Nav */
+    nav { padding: 0 20px; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: rgba(14,27,20,0.98);
+      backdrop-filter: blur(12px);
+      flex-direction: column; align-items: stretch;
+      gap: 0; padding: 0;
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease, padding .3s;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .nav-links.open { max-height: 400px; padding: 12px 0 20px; }
+    .nav-links li { width: 100%; }
+    .nav-links a {
+      display: block; padding: 14px 28px;
+      font-size: 13px; border-bottom: 1px solid rgba(201,168,76,0.07);
+    }
+    .nav-links li:last-child a { border-bottom: none; }
+    .nav-cta { margin: 12px 28px 0 !important; padding: 12px 22px !important; text-align: center; }
+
+    /* Page header */
+    .page-header-inner {
+      padding: 48px 20px 40px;
+      flex-direction: column; align-items: flex-start; gap: 24px;
+    }
+    .page-header-count { text-align: left; }
+
+    /* Filters */
+    .filters-bar { padding: 16px 20px; gap: 8px; }
+    .filter-btn { padding: 7px 14px; font-size: 10px; }
+
+    /* Properties grid */
+    .properties-section { padding: 40px 20px 80px; }
+    .props-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+    /* Modal */
+    .modal-overlay { padding: 12px; }
+    .modal { max-height: 95vh; }
+    .modal-info-grid { grid-template-columns: 1fr 1fr; }
+    .payment-steps { flex-direction: column; gap: 8px; }
+    .modal-content { padding: 24px 20px 40px; }
+    .modal-hero { height: 260px; margin-top: -48px; }
+    .modal-price-bar { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .modal-enquire { width: 100%; }
+
+    /* Footer */
+    .page-footer { padding: 28px 20px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+
+  /* ── RESPONSIVE: MOBILE ── */
+  @media (max-width: 600px) {
+    /* Nav */
+    .logo-text span:last-child { display: none; }
+
+    /* Page header */
+    .page-header-inner { padding: 40px 16px 32px; }
+    .page-header h1 { font-size: clamp(32px, 8vw, 48px); }
+    .page-header-count .num { font-size: 40px; }
+
+    /* Filters — horizontal scroll */
+    .filters-bar {
+      padding: 12px 16px;
+      flex-wrap: nowrap; overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .filters-bar::-webkit-scrollbar { display: none; }
+    .filter-label { flex-shrink: 0; }
+    .filter-btn { flex-shrink: 0; }
+
+    /* Properties grid — single column */
+    .properties-section { padding: 28px 16px 60px; }
+    .props-grid { grid-template-columns: 1fr; gap: 16px; }
+    .prop-img { height: 200px; }
+
+    /* Placeholder card */
+    .prop-card.placeholder { min-height: 260px; }
+
+    /* Modal */
+    .modal-overlay { padding: 0; align-items: flex-end; }
+    .modal {
+      max-height: 96vh; border-radius: 0;
+      width: 100%;
+    }
+    .modal-hero { height: 220px; }
+    .modal-hero-title { font-size: clamp(22px, 6vw, 34px); }
+    .modal-hero-bottom { left: 16px; right: 16px; bottom: 16px; }
+    .modal-content { padding: 20px 16px 36px; }
+    .modal-price { font-size: 22px; }
+    .modal-info-grid { grid-template-columns: 1fr; }
+    .modal-info-cell { padding: 14px 16px; }
+    .payment-steps { gap: 6px; }
+    .payment-step { padding: 12px; }
+
+    /* Footer */
+    .page-footer { padding: 24px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,3 37,13 37,27 20,37 3,27 3,13" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+        <polygon points="20,9 31,15.5 31,24.5 20,31 9,24.5 9,15.5" fill="#C9A84C" fill-opacity="0.15"/>
+        <path d="M13 26 L13 18 L20 13 L27 18 L27 26" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+        <rect x="17" y="20" width="6" height="6" fill="#C9A84C" fill-opacity="0.7"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span>Dream House</span>
+      <span>Premium Real Estate</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gpt.html" class="active">Properties</a></li>
+    <li><a href="faqs.html">FAQs</a></li>
+    <li><a href="index.html">About</a></li>
+    <li><a href="index.html">Locations</a></li>
+    <li><a href="index.html#" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-pattern"></div>
+  <div class="page-header-glow"></div>
+  <div class="page-header-inner">
+    <div>
+      <div class="page-header-eyebrow"><span>Our Portfolio</span></div>
+      <h1>Premium <em>Properties</em><br>Across the Philippines</h1>
+    </div>
+    <div class="page-header-count">
+      <div class="num">10</div>
+      <div class="lbl">Curated Listings</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+  <span class="filter-label">Filter</span>
+  <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+  <button class="filter-btn" onclick="filterCards('rfo', this)">RFO</button>
+  <button class="filter-btn" onclick="filterCards('pre', this)">Pre-Selling</button>
+  <button class="filter-btn" onclick="filterCards('metro-manila', this)">Metro Manila</button>
+  <button class="filter-btn" onclick="filterCards('cebu', this)">Cebu</button>
+  <button class="filter-btn" onclick="filterCards('luxury', this)">Ultra-Luxury</button>
+</div>
+
+<!-- PROPERTIES GRID -->
+<section class="properties-section">
+  <div class="props-grid" id="propsGrid">
+
+    <!-- CARD 1: The Alabaster Tower -->
+    <!-- <div class="prop-card fade-up" data-tags="rfo metro-manila" onclick="openModal('alabaster')">
+      <div class="prop-img">
+        <img src="https://ik.imagekit.io/r0ogw01pg/The%20Alabaster%20Tower%20-%20Makati.png" alt="The Alabaster Tower">
+        <div class="prop-status">RFO</div>
+        <div class="prop-overlay">
+          <button class="prop-overlay-cta">View Details →</button>
+        </div>
+      </div>
+      <div class="prop-body">
+        <div class="prop-location">Makati City, Metro Manila</div>
+        <div class="prop-name">The Alabaster Tower</div>
+        <div class="prop-price">₱25,000,000 – ₱180,000,000</div>
+        <div class="prop-meta">
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Mixed-Use
+          </span>
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            60–350 sq yds
+          </span>
+        </div>
+        <div class="prop-tags">
+          <span class="tag">Mixed-Use</span>
+          <span class="tag">LEED Platinum</span>
+          <span class="tag">Grade A Office</span>
+        </div>
+      </div>
+    </div> -->
+<div class="prop-card fade-up" data-tags="rfo metro-manila" onclick="openModal('alabaster')">
+  <div class="prop-img">
+    <img src="https://ik.imagekit.io/r0ogw01pg/The%20Alabaster%20Tower%20-%20Makati.png" alt="The Alabaster Tower">
+    <div class="prop-status">RFO</div>
+    <div class="prop-overlay">
+      <button class="prop-overlay-cta">View Details →</button>
+    </div>
+  </div>
+
+  <div class="prop-body">
+    <div class="prop-location">Makati City, Metro Manila</div>
+    <div class="prop-name">The Alabaster Tower</div>
+    <div class="prop-price">₱25,000,000 – ₱180,000,000</div>
+
+    <div class="prop-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+        Mixed-Use
+      </span>
+
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18"/>
+          <path d="M9 21V9"/>
+        </svg>
+        60–350 sq yds
+      </span>
+    </div>
+
+    <div class="prop-tags">
+      <span class="tag">Mixed-Use</span>
+      <span class="tag">LEED Platinum</span>
+      <span class="tag">Grade A Office</span>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-alabaster" onclick="handleOverlayClick(event, 'alabaster')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="The Alabaster Tower Details">
+
+    <!-- Close -->
+    <div class="modal-close">
+      <button class="modal-close-btn" onclick="closeModal('alabaster')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hero -->
+    <div class="modal-hero">
+      <img src="https://ik.imagekit.io/r0ogw01pg/The%20Alabaster%20Tower%20-%20Makati.png" alt="The Alabaster Tower">
+      <div class="modal-hero-overlay"></div>
+
+      <div class="modal-hero-badge">Ready to Move In</div>
+
+      <div class="modal-hero-bottom">
+        <div class="modal-hero-location">
+          122 Ayala Avenue cor. Paseo de Roxas · Makati City, 1226
+        </div>
+        <div class="modal-hero-title">The Alabaster Tower</div>
+      </div>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- Price -->
+      <div class="modal-price-bar">
+        <div>
+          <div class="modal-price">₱25,000,000 — ₱180,000,000</div>
+          <div class="modal-price-label">Mixed-Use (Residential & Grade A Office)</div>
+        </div>
+        <button class="modal-enquire">Enquire Now</button>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">
+        Standing at the historic intersection of Ayala Avenue and Paseo de Roxas, The Alabaster Tower represents the pinnacle of cosmopolitan living in the Philippines' primary financial hub. Its striking white-glass facade reflects the city’s energy while offering a serene, soundproof sanctuary—perfect for modern professionals seeking both luxury and efficiency.
+      </p>
+
+      <!-- Info -->
+      <div class="modal-info-grid">
+        <div class="modal-info-cell">
+          <div class="lbl">Property Type</div>
+          <div class="val">Mixed-Use (Residential & Grade A Office)</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Status</div>
+          <div class="val">Ready to Move In (RFO)</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Move-In Date</div>
+          <div class="val">Available Now</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Unit Size</div>
+          <div class="val">60 – 350 sq yds</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Developer</div>
+          <div class="val">Alabaster Elite Development Corp.</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Parking</div>
+          <div class="val">3 Underground Levels · 2 slots per unit</div>
+        </div>
+      </div>
+
+      <!-- USP -->
+      <div class="modal-usp">
+        <div class="usp-label">Unique Selling Point</div>
+        <p>
+          "The most prestigious corporate address in Makati CBD with unmatched 360° views."
+        </p>
+      </div>
+
+      <!-- Unique Feature -->
+      <div class="unique-feature">
+        <div class="uf-label">⬡ Signature Feature</div>
+        <p>
+          The <strong>"Sky-High Infinity Pool"</strong> on the 60th floor features a transparent acrylic edge, giving the sensation of floating above the Makati skyline—from Manila Bay to the Sierra Madre mountains.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="modal-section">
+        <div class="modal-section-title">Building Features</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag gold">Full-Glass Curtain Wall</span>
+          <span class="modal-tag gold">Smart Elevators</span>
+          <span class="modal-tag gold">LEED Platinum Certified</span>
+          <span class="modal-tag gold">Fiber-Optic Backbone</span>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+      <div class="modal-section">
+        <div class="modal-section-title">Amenities</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag">Business Lounge</span>
+          <span class="modal-tag">Infinity Pool</span>
+          <span class="modal-tag">24/7 Concierge</span>
+          <span class="modal-tag">Fitness Center</span>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="modal-section">
+        <div class="modal-section-title">Payment Terms</div>
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="pct">10%</div>
+            <div class="desc">Spot Downpayment</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">20%</div>
+            <div class="desc">Spread over 48 months</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">70%</div>
+            <div class="desc">Bank Financing</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby -->
+      <div class="modal-section">
+        <div class="modal-section-title">Nearby Landmarks</div>
+        <div class="landmarks-list">
+          <span class="landmark">Ayala Triangle Gardens</span>
+          <span class="landmark">Greenbelt Mall</span>
+          <span class="landmark">Makati Medical Center</span>
+          <span class="landmark">Philippine Stock Exchange</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!--Amihan Heights-->
+<div class="prop-card fade-up" data-tags="under-construction cebu" onclick="openModal('amihan')">
+  <div class="prop-img">
+    <img src="https://ik.imagekit.io/r0ogw01pg/Amihan%20Heights%20-%20Cebu.png" alt="Amihan Heights">
+    <div class="prop-status">Under Construction</div>
+    <div class="prop-overlay">
+      <button class="prop-overlay-cta">View Details →</button>
+    </div>
+  </div>
+
+  <div class="prop-body">
+    <div class="prop-location">Cebu City, Cebu</div>
+    <div class="prop-name">Amihan Heights</div>
+    <div class="prop-price">₱6,500,000 – ₱22,000,000</div>
+
+    <div class="prop-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+        Residential Condominium
+      </span>
+
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18"/>
+          <path d="M9 21V9"/>
+        </svg>
+        35–120 sq yds
+      </span>
+    </div>
+
+    <div class="prop-tags">
+      <span class="tag">Eco-Passive</span>
+      <span class="tag">Wind Ventilation</span>
+      <span class="tag">Sustainable Living</span>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-amihan" onclick="handleOverlayClick(event, 'amihan')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Amihan Heights Details">
+
+    <!-- Close -->
+    <div class="modal-close">
+      <button class="modal-close-btn" onclick="closeModal('amihan')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hero -->
+    <div class="modal-hero">
+      <img src="https://ik.imagekit.io/r0ogw01pg/Amihan%20Heights%20-%20Cebu.png" alt="Amihan Heights">
+      <div class="modal-hero-overlay"></div>
+
+      <div class="modal-hero-badge">Under Construction</div>
+
+      <div class="modal-hero-bottom">
+        <div class="modal-hero-location">
+          Lot 4, North Reclamation Area · Cebu City, 6000
+        </div>
+        <div class="modal-hero-title">Amihan Heights</div>
+      </div>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- Price -->
+      <div class="modal-price-bar">
+        <div>
+          <div class="modal-price">₱6,500,000 — ₱22,000,000</div>
+          <div class="modal-price-label">Residential Condominium</div>
+        </div>
+        <button class="modal-enquire">Enquire Now</button>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">
+        Amihan Heights is Cebu City’s answer to sustainable urban tropical living. Situated in the rapidly developing North Reclamation Area, this twin-tower project prioritizes wellness and environmental harmony. The architecture is sculpted to channel cool Amihan winds through the building, creating naturally ventilated and comfortable living spaces.
+      </p>
+
+      <!-- Info -->
+      <div class="modal-info-grid">
+        <div class="modal-info-cell">
+          <div class="lbl">Property Type</div>
+          <div class="val">Residential Condominium</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Status</div>
+          <div class="val">Under Construction</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Move-In Date</div>
+          <div class="val">Q4 2027</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Unit Size</div>
+          <div class="val">35 – 120 sq yds</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Developer</div>
+          <div class="val">Cebu Pacific Blue Properties</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Parking</div>
+          <div class="val">Podium · 1 slot per 2BR</div>
+        </div>
+      </div>
+
+      <!-- USP -->
+      <div class="modal-usp">
+        <div class="usp-label">Unique Selling Point</div>
+        <p>
+          "Eco-passive design utilizing Amihan winds to reduce air-conditioning costs by up to 30%."
+        </p>
+      </div>
+
+      <!-- Unique Feature -->
+      <div class="unique-feature">
+        <div class="uf-label">⬡ Signature Feature</div>
+        <p>
+          The <strong>"Wind Garden"</strong> features kinetic sculptures that respond to airflow, visually demonstrating the building’s natural ventilation efficiency.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="modal-section">
+        <div class="modal-section-title">Building Features</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag gold">Breezeway Design</span>
+          <span class="modal-tag gold">Deep-Set Verandas</span>
+          <span class="modal-tag gold">Low-E Glass Windows</span>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+      <div class="modal-section">
+        <div class="modal-section-title">Amenities</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag">Wind Garden</span>
+          <span class="modal-tag">Outdoor Yoga Deck</span>
+          <span class="modal-tag">Lap Pool</span>
+          <span class="modal-tag">Cross-Ventilation Lobby</span>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="modal-section">
+        <div class="modal-section-title">Payment Terms</div>
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="pct">0%</div>
+            <div class="desc">No Spot Downpayment</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">15%</div>
+            <div class="desc">Spread over 36 months</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">85%</div>
+            <div class="desc">Bank / Pag-IBIG</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby -->
+      <div class="modal-section">
+        <div class="modal-section-title">Nearby Landmarks</div>
+        <div class="landmarks-list">
+          <span class="landmark">SM City Cebu</span>
+          <span class="landmark">Robinsons Galleria Cebu</span>
+          <span class="landmark">Cebu Doctors' University Hospital</span>
+          <span class="landmark">Chong Hua Hospital</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Amihan Heights-->
+
+
+<!--Solane Residences-->
+<div class="prop-card fade-up" data-tags="under-construction davao" onclick="openModal('solane')">
+  <div class="prop-img">
+    <img src="https://ik.imagekit.io/r0ogw01pg/Solane%20Residences%20-%20Davao.png" alt="Solane Residences">
+    <div class="prop-status">Under Construction</div>
+    <div class="prop-overlay">
+      <button class="prop-overlay-cta">View Details →</button>
+    </div>
+  </div>
+
+  <div class="prop-body">
+    <div class="prop-location">Davao City, Davao del Sur</div>
+    <div class="prop-name">Solane Residences</div>
+    <div class="prop-price">₱5,200,000 – ₱18,000,000</div>
+
+    <div class="prop-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+        Mid-Rise Condominium
+      </span>
+
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18"/>
+          <path d="M9 21V9"/>
+        </svg>
+        42–150 sq yds
+      </span>
+    </div>
+
+    <div class="prop-tags">
+      <span class="tag">Resort-Inspired</span>
+      <span class="tag">Low Density</span>
+      <span class="tag">Urban Sanctuary</span>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-solane" onclick="handleOverlayClick(event, 'solane')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Solane Residences Details">
+
+    <!-- Close -->
+    <div class="modal-close">
+      <button class="modal-close-btn" onclick="closeModal('solane')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hero -->
+    <div class="modal-hero">
+      <img src="https://ik.imagekit.io/r0ogw01pg/Solane%20Residences%20-%20Davao.png" alt="Solane Residences">
+      <div class="modal-hero-overlay"></div>
+
+      <div class="modal-hero-badge">Under Construction</div>
+
+      <div class="modal-hero-bottom">
+        <div class="modal-hero-location">
+          Solane Drive, Diversion Road · Davao City, 8000
+        </div>
+        <div class="modal-hero-title">Solane Residences</div>
+      </div>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- Price -->
+      <div class="modal-price-bar">
+        <div>
+          <div class="modal-price">₱5,200,000 — ₱18,000,000</div>
+          <div class="modal-price-label">Mid-Rise Condominium</div>
+        </div>
+        <button class="modal-enquire">Enquire Now</button>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">
+        Designed as a sprawling mid-rise oasis, Solane Residences brings the laid-back charm of Davao’s coastline into the city's heart. The development emphasizes open-concept living, where lush outdoor spaces seamlessly blend with modern interiors through expansive floor-to-ceiling windows—creating a perfect balance between urban convenience and peaceful retreat.
+      </p>
+
+      <!-- Info -->
+      <div class="modal-info-grid">
+        <div class="modal-info-cell">
+          <div class="lbl">Property Type</div>
+          <div class="val">Mid-Rise Condominium</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Status</div>
+          <div class="val">Under Construction (Phase 1 Ready, Phase 2 Ongoing)</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Move-In Date</div>
+          <div class="val">Phase 2 - June 2026</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Unit Size</div>
+          <div class="val">42 – 150 sq yds</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Developer</div>
+          <div class="val">Solar Oasis Realty</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Parking</div>
+          <div class="val">Open-air & Covered · Guest Parking Available</div>
+        </div>
+      </div>
+
+      <!-- USP -->
+      <div class="modal-usp">
+        <div class="usp-label">Unique Selling Point</div>
+        <p>
+          "An Urban Sanctuary with the lowest density of units per floor in Davao City."
+        </p>
+      </div>
+
+      <!-- Unique Feature -->
+      <div class="unique-feature">
+        <div class="uf-label">⬡ Signature Feature</div>
+        <p>
+          The <strong>"Central Sun Plaza"</strong> uses solar-tracking mirrors to ensure the lagoon pool and herb gardens receive optimal sunlight throughout the day, enhancing both aesthetics and energy efficiency.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="modal-section">
+        <div class="modal-section-title">Building Features</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag gold">Resort-Inspired Cluster</span>
+          <span class="modal-tag gold">Floor-to-Ceiling Windows</span>
+          <span class="modal-tag gold">Smart-Lock Entry</span>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+      <div class="modal-section">
+        <div class="modal-section-title">Amenities</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag">Lagoon Pool</span>
+          <span class="modal-tag">Central Sun Plaza</span>
+          <span class="modal-tag">Herb Gardens</span>
+          <span class="modal-tag">Meditation Gazebo</span>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="modal-section">
+        <div class="modal-section-title">Payment Terms</div>
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="pct">5%</div>
+            <div class="desc">Reservation</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">15%</div>
+            <div class="desc">DP over 24 months</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">80%</div>
+            <div class="desc">Financing</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby -->
+      <div class="modal-section">
+        <div class="modal-section-title">Nearby Landmarks</div>
+        <div class="landmarks-list">
+          <span class="landmark">SM City Davao</span>
+          <span class="landmark">Abreeza Mall</span>
+          <span class="landmark">Davao Doctors Hospital</span>
+          <span class="landmark">People’s Park</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Solane Residences-->
+
+
+
+<!--Luntian Residences-->
+<div class="prop-card fade-up" data-tags="rfo tagaytay" onclick="openModal('luntian')">
+  <div class="prop-img">
+    <img src="https://ik.imagekit.io/r0ogw01pg/Luntian%20Terraces%20-%20Tagaytay.png" alt="Luntian Terraces">
+    <div class="prop-status">RFO</div>
+    <div class="prop-overlay">
+      <button class="prop-overlay-cta">View Details →</button>
+    </div>
+  </div>
+
+  <div class="prop-body">
+    <div class="prop-location">Tagaytay City, Cavite</div>
+    <div class="prop-name">Luntian Terraces</div>
+    <div class="prop-price">₱9,000,000 – ₱35,000,000</div>
+
+    <div class="prop-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+        Residential Condominium
+      </span>
+
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18"/>
+          <path d="M9 21V9"/>
+        </svg>
+        50–180 sq yds
+      </span>
+    </div>
+
+    <div class="prop-tags">
+      <span class="tag">Sky Gardens</span>
+      <span class="tag">Eco Living</span>
+      <span class="tag">Taal View</span>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-luntian" onclick="handleOverlayClick(event, 'luntian')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Luntian Terraces Details">
+
+    <!-- Close -->
+    <div class="modal-close">
+      <button class="modal-close-btn" onclick="closeModal('luntian')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hero -->
+    <div class="modal-hero">
+      <img src="https://ik.imagekit.io/r0ogw01pg/Luntian%20Terraces%20-%20Tagaytay.png" alt="Luntian Terraces">
+      <div class="modal-hero-overlay"></div>
+
+      <div class="modal-hero-badge">Ready to Move In</div>
+
+      <div class="modal-hero-bottom">
+        <div class="modal-hero-location">
+          KM 54, Aguinaldo Highway · Tagaytay City, 4120
+        </div>
+        <div class="modal-hero-title">Luntian Terraces</div>
+      </div>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- Price -->
+      <div class="modal-price-bar">
+        <div>
+          <div class="modal-price">₱9,000,000 — ₱35,000,000</div>
+          <div class="modal-price-label">Residential Condominium</div>
+        </div>
+        <button class="modal-enquire">Enquire Now</button>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">
+        Luntian Terraces is a vertical sanctuary in the cool highlands of Tagaytay. Designed for sustainable luxury, the development integrates lush sky gardens and natural systems into everyday living. Residents enjoy serene surroundings, fresh mountain air, and breathtaking views—perfect for those seeking peace without sacrificing modern comforts.
+      </p>
+
+      <!-- Info -->
+      <div class="modal-info-grid">
+        <div class="modal-info-cell">
+          <div class="lbl">Property Type</div>
+          <div class="val">Residential Condominium</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Status</div>
+          <div class="val">Ready to Move In (RFO)</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Move-In Date</div>
+          <div class="val">Available Now</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Unit Size</div>
+          <div class="val">50 – 180 sq yds</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Developer</div>
+          <div class="val">Eco-Build Philippines</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Parking</div>
+          <div class="val">1 Basement Slot (2BR Units)</div>
+        </div>
+      </div>
+
+      <!-- USP -->
+      <div class="modal-usp">
+        <div class="usp-label">Unique Selling Point</div>
+        <p>
+          "Private balcony gardens with edible landscaping and stunning views of Taal Volcano."
+        </p>
+      </div>
+
+      <!-- Unique Feature -->
+      <div class="unique-feature">
+        <div class="uf-label">⬡ Signature Feature</div>
+        <p>
+          Each unit includes a <strong>"Hydro-Balcony"</strong>—a built-in hydroponic system that allows residents to grow organic herbs and vegetables using harvested rainwater.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="modal-section">
+        <div class="modal-section-title">Building Features</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag gold">Sky Gardens</span>
+          <span class="modal-tag gold">Rainwater Harvesting</span>
+          <span class="modal-tag gold">Earthquake-Resilient Structure</span>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+      <div class="modal-section">
+        <div class="modal-section-title">Amenities</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag">Organic Greenhouse</span>
+          <span class="modal-tag">Jogging Paths</span>
+          <span class="modal-tag">Forest View Deck</span>
+          <span class="modal-tag">Composting Facility</span>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="modal-section">
+        <div class="modal-section-title">Payment Terms</div>
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="pct">20%</div>
+            <div class="desc">Spot DP (10% Discount)</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">80%</div>
+            <div class="desc">Bank Financing</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby -->
+      <div class="modal-section">
+        <div class="modal-section-title">Nearby Landmarks</div>
+        <div class="landmarks-list">
+          <span class="landmark">Sky Ranch Tagaytay</span>
+          <span class="landmark">Taal Vista Hotel</span>
+          <span class="landmark">Fora Mall</span>
+          <span class="landmark">Picnic Grove</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Luntian Residences-->
+<div class="prop-card fade-up" data-tags="under-construction bgc" onclick="openModal('marahuyo')">
+  <div class="prop-img">
+    <img src="https://ik.imagekit.io/r0ogw01pg/Marahuyo%20Central%20-%20BGC.png" alt="Marahuyo Central">
+    <div class="prop-status">Under Construction</div>
+    <div class="prop-overlay">
+      <button class="prop-overlay-cta">View Details →</button>
+    </div>
+  </div>
+
+  <div class="prop-body">
+    <div class="prop-location">Taguig City (BGC), Metro Manila</div>
+    <div class="prop-name">Marahuyo Central</div>
+    <div class="prop-price">₱85,000,000 – ₱450,000,000</div>
+
+    <div class="prop-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+        Ultra-Luxury Residential
+      </span>
+
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18"/>
+          <path d="M9 21V9"/>
+        </svg>
+        180–600 sq yds
+      </span>
+    </div>
+
+    <div class="prop-tags">
+      <span class="tag">Ultra Luxury</span>
+      <span class="tag">Private Elevators</span>
+      <span class="tag">Exclusive Living</span>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-marahuyo" onclick="handleOverlayClick(event, 'marahuyo')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Marahuyo Central Details">
+
+    <!-- Close -->
+    <div class="modal-close">
+      <button class="modal-close-btn" onclick="closeModal('marahuyo')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hero -->
+    <div class="modal-hero">
+      <img src="https://ik.imagekit.io/r0ogw01pg/Marahuyo%20Central%20-%20BGC.png" alt="Marahuyo Central">
+      <div class="modal-hero-overlay"></div>
+
+      <div class="modal-hero-badge">Under Construction</div>
+
+      <div class="modal-hero-bottom">
+        <div class="modal-hero-location">
+          Block 9, Bonifacio Global City · Taguig City, 1634
+        </div>
+        <div class="modal-hero-title">Marahuyo Central</div>
+      </div>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- Price -->
+      <div class="modal-price-bar">
+        <div>
+          <div class="modal-price">₱85,000,000 — ₱450,000,000</div>
+          <div class="modal-price-label">Ultra-Luxury Residential</div>
+        </div>
+        <button class="modal-enquire">Enquire Now</button>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">
+        Marahuyo Central is crafted for the global elite seeking unmatched privacy in Bonifacio Global City. Blending traditional Filipino artistry with avant-garde European design, this development offers a bespoke living experience—where every detail, from hand-carved interiors to curated art installations, reflects refined luxury and exclusivity.
+      </p>
+
+      <!-- Info -->
+      <div class="modal-info-grid">
+        <div class="modal-info-cell">
+          <div class="lbl">Property Type</div>
+          <div class="val">Ultra-Luxury Residential</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Status</div>
+          <div class="val">Under Construction</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Move-In Date</div>
+          <div class="val">December 2028</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Unit Size</div>
+          <div class="val">180 – 600 sq yds</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Developer</div>
+          <div class="val">Heritage Luxe Gold Group</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Parking</div>
+          <div class="val">3–4 Slots · EV Charging Included</div>
+        </div>
+      </div>
+
+      <!-- USP -->
+      <div class="modal-usp">
+        <div class="usp-label">Unique Selling Point</div>
+        <p>
+          "Extreme exclusivity with only 4 units per floor in the heart of BGC."
+        </p>
+      </div>
+
+      <!-- Unique Feature -->
+      <div class="unique-feature">
+        <div class="uf-label">⬡ Signature Feature</div>
+        <p>
+          The <strong>"Invisilift"</strong> private elevator system uses silent magnetic-levitation technology to transport residents directly from basement parking into their homes—ensuring complete privacy and zero intermediate stops.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="modal-section">
+        <div class="modal-section-title">Building Features</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag gold">Italian Marble Finishes</span>
+          <span class="modal-tag gold">Biometric Automation</span>
+          <span class="modal-tag gold">3.5m Ceiling Height</span>
+          <span class="modal-tag gold">Acoustic Glass</span>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+      <div class="modal-section">
+        <div class="modal-section-title">Amenities</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag">Private Elevator Access</span>
+          <span class="modal-tag">Wine Cellar</span>
+          <span class="modal-tag">Cigar Lounge</span>
+          <span class="modal-tag">24/7 Butler Service</span>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="modal-section">
+        <div class="modal-section-title">Payment Terms</div>
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="pct">50%</div>
+            <div class="desc">Spot Cash (15% Discount)</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">30%</div>
+            <div class="desc">Downpayment</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">70%</div>
+            <div class="desc">12-Month Terms</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby -->
+      <div class="modal-section">
+        <div class="modal-section-title">Nearby Landmarks</div>
+        <div class="landmarks-list">
+          <span class="landmark">St. Luke’s Medical Center BGC</span>
+          <span class="landmark">Bonifacio High Street</span>
+          <span class="landmark">Uptown Mall</span>
+          <span class="landmark">Google Philippines Office</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Marahuyo Central-->
+
+<!--Azure Horizon-->
+<div class="prop-card fade-up" data-tags="waterfront cebu under-construction" onclick="openModal('azure')">
+  <div class="prop-img">
+    <img src="https://ik.imagekit.io/r0ogw01pg/The%20Azure%20Horizon%20-%20Cebu.png" alt="The Azure Horizon">
+    <div class="prop-status">Under Construction</div>
+    <div class="prop-overlay">
+      <button class="prop-overlay-cta">View Details →</button>
+    </div>
+  </div>
+
+  <div class="prop-body">
+    <div class="prop-location">Cebu City, Cebu</div>
+    <div class="prop-name">The Azure Horizon</div>
+    <div class="prop-price">₱8,500,000 – ₱55,000,000</div>
+
+    <div class="prop-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+        Waterfront Residential
+      </span>
+
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18"/>
+          <path d="M9 21V9"/>
+        </svg>
+        45–220 sq yds
+      </span>
+    </div>
+
+    <div class="prop-tags">
+      <span class="tag">Waterfront</span>
+      <span class="tag">Sea View</span>
+      <span class="tag">Luxury Living</span>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-azure" onclick="handleOverlayClick(event, 'azure')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="The Azure Horizon Details">
+
+    <!-- Close -->
+    <div class="modal-close">
+      <button class="modal-close-btn" onclick="closeModal('azure')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hero -->
+    <div class="modal-hero">
+      <img src="https://ik.imagekit.io/r0ogw01pg/The%20Azure%20Horizon%20-%20Cebu.png" alt="The Azure Horizon">
+      <div class="modal-hero-overlay"></div>
+
+      <div class="modal-hero-badge">Under Construction</div>
+
+      <div class="modal-hero-bottom">
+        <div class="modal-hero-location">
+          South Road Properties · Seaside Path · Cebu City, 6000
+        </div>
+        <div class="modal-hero-title">The Azure Horizon</div>
+      </div>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- Price -->
+      <div class="modal-price-bar">
+        <div>
+          <div class="modal-price">₱8,500,000 — ₱55,000,000</div>
+          <div class="modal-price-label">Waterfront Residential</div>
+        </div>
+        <button class="modal-enquire">Enquire Now</button>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">
+        The Azure Horizon rises along Cebu’s vibrant South Road Properties, offering uninterrupted views of the Cebu Strait. Inspired by the elegance of a luxury super-yacht, the development features sleek lines and expansive balconies designed for oceanfront living. It is the perfect residence for those who want to wake up to the sea and embrace a lifestyle shaped by the rhythm of the water.
+      </p>
+
+      <!-- Info -->
+      <div class="modal-info-grid">
+        <div class="modal-info-cell">
+          <div class="lbl">Property Type</div>
+          <div class="val">Waterfront Residential</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Status</div>
+          <div class="val">Under Construction</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Move-In Date</div>
+          <div class="val">March 2027</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Unit Size</div>
+          <div class="val">45 – 220 sq yds</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Developer</div>
+          <div class="val">BlueWave Maritime Estates</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Parking</div>
+          <div class="val">Multi-Level Podium Parking</div>
+        </div>
+      </div>
+
+      <!-- USP -->
+      <div class="modal-usp">
+        <div class="usp-label">Unique Selling Point</div>
+        <p>
+          "Uninterrupted lifetime views of the Cebu Strait with direct seaside promenade access."
+        </p>
+      </div>
+
+      <!-- Unique Feature -->
+      <div class="unique-feature">
+        <div class="uf-label">⬡ Signature Feature</div>
+        <p>
+          The <strong>"BluePass"</strong> Resident Pier allows direct pickup by private water taxis or yachts from the building’s boardwalk—offering a scenic, traffic-free coastal commute.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="modal-section">
+        <div class="modal-section-title">Building Features</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag gold">Nautical Architecture</span>
+          <span class="modal-tag gold">Salt-Water Resistant Coating</span>
+          <span class="modal-tag gold">100% Sea-Facing Units</span>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+      <div class="modal-section">
+        <div class="modal-section-title">Amenities</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag">Private Pier Access</span>
+          <span class="modal-tag">Yacht Club Membership</span>
+          <span class="modal-tag">Seaside Boardwalk</span>
+          <span class="modal-tag">Ocean-View Gym</span>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="modal-section">
+        <div class="modal-section-title">Payment Terms</div>
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="pct">Year 1</div>
+            <div class="desc">₱15,000/month (Starting)</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">Step-Up</div>
+            <div class="desc">Increases Annually</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby -->
+      <div class="modal-section">
+        <div class="modal-section-title">Nearby Landmarks</div>
+        <div class="landmarks-list">
+          <span class="landmark">SM Seaside City Cebu</span>
+          <span class="landmark">NUSTAR Resort & Casino</span>
+          <span class="landmark">Cebu Ocean Park</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Azure Horizon-->
+
+
+<!--Marahuyo Central-->
+
+
+
+
+
+<!--Hiraya Grand-->
+<div class="prop-card fade-up" data-tags="rfo qc mixed-use" onclick="openModal('hiraya')">
+  <div class="prop-img">
+    <img src="https://ik.imagekit.io/r0ogw01pg/Hiraya%20Grand%20-%20Quezon.png" alt="Hiraya Grand">
+    <div class="prop-status">RFO</div>
+    <div class="prop-overlay">
+      <button class="prop-overlay-cta">View Details →</button>
+    </div>
+  </div>
+
+  <div class="prop-body">
+    <div class="prop-location">Quezon City, Metro Manila</div>
+    <div class="prop-name">Hiraya Grand</div>
+    <div class="prop-price">₱4,500,000 – ₱15,000,000</div>
+
+    <div class="prop-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+        Mixed-Use Development
+      </span>
+
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18"/>
+          <path d="M9 21V9"/>
+        </svg>
+        30–90 sq yds
+      </span>
+    </div>
+
+    <div class="prop-tags">
+      <span class="tag">Loft Living</span>
+      <span class="tag">City Life</span>
+      <span class="tag">All-in-One</span>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-hiraya" onclick="handleOverlayClick(event, 'hiraya')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Hiraya Grand Details">
+
+    <!-- Close -->
+    <div class="modal-close">
+      <button class="modal-close-btn" onclick="closeModal('hiraya')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hero -->
+    <div class="modal-hero">
+      <img src="https://ik.imagekit.io/r0ogw01pg/Hiraya%20Grand%20-%20Quezon.png" alt="Hiraya Grand">
+      <div class="modal-hero-overlay"></div>
+
+      <div class="modal-hero-badge">Ready to Move In</div>
+
+      <div class="modal-hero-bottom">
+        <div class="modal-hero-location">
+          E. Rodriguez Jr. Ave (C-5) · Libis · Quezon City, 1110
+        </div>
+        <div class="modal-hero-title">Hiraya Grand</div>
+      </div>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- Price -->
+      <div class="modal-price-bar">
+        <div>
+          <div class="modal-price">₱4,500,000 — ₱15,000,000</div>
+          <div class="modal-price-label">Mixed-Use (Residential Lofts + Mall)</div>
+        </div>
+        <button class="modal-enquire">Enquire Now</button>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">
+        Hiraya Grand is a vibrant vertical community in Libis designed for modern professionals who value convenience and connectivity. Combining residential lofts with a lifestyle mall, it creates a seamless environment where work, leisure, and living coexist. The spacious loft-style units and dynamic surroundings make it an ideal choice for entrepreneurs, creatives, and digital nomads.
+      </p>
+
+      <!-- Info -->
+      <div class="modal-info-grid">
+        <div class="modal-info-cell">
+          <div class="lbl">Property Type</div>
+          <div class="val">Mixed-Use (Residential Lofts + Mall)</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Status</div>
+          <div class="val">Ready to Move In (RFO)</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Move-In Date</div>
+          <div class="val">Available Now</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Unit Size</div>
+          <div class="val">30 – 90 sq yds</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Developer</div>
+          <div class="val">DreamBuilders Asia</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Parking</div>
+          <div class="val">Mall + Dedicated Residential Parking</div>
+        </div>
+      </div>
+
+      <!-- USP -->
+      <div class="modal-usp">
+        <div class="usp-label">Unique Selling Point</div>
+        <p>
+          "A city within a building—offering unmatched convenience for modern urban living."
+        </p>
+      </div>
+
+      <!-- Unique Feature -->
+      <div class="unique-feature">
+        <div class="uf-label">⬡ Signature Feature</div>
+        <p>
+          The <strong>"Commuter Bridge"</strong> is a private, air-conditioned walkway connecting residents directly to nearby transit hubs and Eastwood City—ensuring comfort and accessibility in any weather.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="modal-section">
+        <div class="modal-section-title">Building Features</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag gold">Industrial Loft Ceilings</span>
+          <span class="modal-tag gold">Transit Bridge Access</span>
+          <span class="modal-tag gold">Smart Card Security</span>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+      <div class="modal-section">
+        <div class="modal-section-title">Amenities</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag">Children’s Library</span>
+          <span class="modal-tag">Grand Ballroom</span>
+          <span class="modal-tag">Olympic Pool</span>
+          <span class="modal-tag">Lifestyle Mall Podium</span>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="modal-section">
+        <div class="modal-section-title">Payment Terms</div>
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="pct">10%</div>
+            <div class="desc">Downpayment</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">10%</div>
+            <div class="desc">30 Months Installment</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">80%</div>
+            <div class="desc">Retention / Balance</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby -->
+      <div class="modal-section">
+        <div class="modal-section-title">Nearby Landmarks</div>
+        <div class="landmarks-list">
+          <span class="landmark">Eastwood City</span>
+          <span class="landmark">St. Paul University QC</span>
+          <span class="landmark">Medical City Pasig</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!--Hiraya Grand-->
+
+
+
+
+<!--Vespera Point-->
+<div class="prop-card fade-up" data-tags="under-construction manila heritage" onclick="openModal('vespera')">
+  <div class="prop-img">
+    <img src="https://ik.imagekit.io/r0ogw01pg/Vespera%20Point%20-%20Manila.png" alt="Vespera Point">
+    <div class="prop-status">Under Construction</div>
+    <div class="prop-overlay">
+      <button class="prop-overlay-cta">View Details →</button>
+    </div>
+  </div>
+
+  <div class="prop-body">
+    <div class="prop-location">Manila City, Metro Manila</div>
+    <div class="prop-name">Vespera Point</div>
+    <div class="prop-price">₱12,000,000 – ₱42,000,000</div>
+
+    <div class="prop-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+        Heritage Residential
+      </span>
+
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18"/>
+          <path d="M9 21V9"/>
+        </svg>
+        55–140 sq yds
+      </span>
+    </div>
+
+    <div class="prop-tags">
+      <span class="tag">Heritage</span>
+      <span class="tag">Sunset Views</span>
+      <span class="tag">Art Deco</span>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-vespera" onclick="handleOverlayClick(event, 'vespera')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Vespera Point Details">
+
+    <!-- Close -->
+    <div class="modal-close">
+      <button class="modal-close-btn" onclick="closeModal('vespera')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hero -->
+    <div class="modal-hero">
+      <img src="https://ik.imagekit.io/r0ogw01pg/Vespera%20Point%20-%20Manila.png" alt="Vespera Point">
+      <div class="modal-hero-overlay"></div>
+
+      <div class="modal-hero-badge">Under Construction</div>
+
+      <div class="modal-hero-bottom">
+        <div class="modal-hero-location">
+          Roxas Boulevard · Malate · Manila, 1004
+        </div>
+        <div class="modal-hero-title">Vespera Point</div>
+      </div>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- Price -->
+      <div class="modal-price-bar">
+        <div>
+          <div class="modal-price">₱12,000,000 — ₱42,000,000</div>
+          <div class="modal-price-label">Heritage Residential</div>
+        </div>
+        <button class="modal-enquire">Enquire Now</button>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">
+        Vespera Point celebrates the timeless elegance of old Manila along Roxas Boulevard. Inspired by the Art Deco movement of the 1930s, it blends heritage aesthetics with modern engineering. Designed for those who value culture, history, and refined living, the property offers a unique lifestyle anchored in the beauty of Manila Bay.
+      </p>
+
+      <!-- Info -->
+      <div class="modal-info-grid">
+        <div class="modal-info-cell">
+          <div class="lbl">Property Type</div>
+          <div class="val">Heritage Residential</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Status</div>
+          <div class="val">Under Construction</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Move-In Date</div>
+          <div class="val">October 2026</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Unit Size</div>
+          <div class="val">55 – 140 sq yds</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Developer</div>
+          <div class="val">Manila Heritage Revitalization Corp.</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Parking</div>
+          <div class="val">2 Basement Levels</div>
+        </div>
+      </div>
+
+      <!-- USP -->
+      <div class="modal-usp">
+        <div class="usp-label">Unique Selling Point</div>
+        <p>
+          "Optimized viewing angles for the world-famous Manila Bay sunset."
+        </p>
+      </div>
+
+      <!-- Unique Feature -->
+      <div class="unique-feature">
+        <div class="uf-label">⬡ Signature Feature</div>
+        <p>
+          The <strong>"Golden Hour Lounge"</strong> is a rooftop amphitheater-style deck with polarized glass panels that enhance sunset colors while reducing glare and UV exposure.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="modal-section">
+        <div class="modal-section-title">Building Features</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag gold">Art Deco Facade</span>
+          <span class="modal-tag gold">Historic Motif Design</span>
+          <span class="modal-tag gold">Anti-Corrosive Windows</span>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+      <div class="modal-section">
+        <div class="modal-section-title">Amenities</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag">Sunset Deck</span>
+          <span class="modal-tag">Jazz Bar</span>
+          <span class="modal-tag">Library</span>
+          <span class="modal-tag">Thermal Spa Pools</span>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="modal-section">
+        <div class="modal-section-title">Payment Terms</div>
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="pct">0%</div>
+            <div class="desc">Interest for 24 Months</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby -->
+      <div class="modal-section">
+        <div class="modal-section-title">Nearby Landmarks</div>
+        <div class="landmarks-list">
+          <span class="landmark">US Embassy</span>
+          <span class="landmark">Manila Yacht Club</span>
+          <span class="landmark">Rizal Park</span>
+          <span class="landmark">Cultural Center of the Philippines</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--Vespera Point-->
+
+
+<!--Kalings Suites-->
+<div class="prop-card fade-up" data-tags="under-construction ortigas family" onclick="openModal('kalinga')">
+  <div class="prop-img">
+    <img src="https://ik.imagekit.io/r0ogw01pg/Kalinga%20Suites%20-%20Pasig.png" alt="Kalinga Suites">
+    <div class="prop-status">Under Construction</div>
+    <div class="prop-overlay">
+      <button class="prop-overlay-cta">View Details →</button>
+    </div>
+  </div>
+
+  <div class="prop-body">
+    <div class="prop-location">Pasig City, Metro Manila</div>
+    <div class="prop-name">Kalinga Suites</div>
+    <div class="prop-price">₱14,000,000 – ₱48,000,000</div>
+
+    <div class="prop-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+        Multi-Generational Residential
+      </span>
+
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18"/>
+          <path d="M9 21V9"/>
+        </svg>
+        70–200 sq yds
+      </span>
+    </div>
+
+    <div class="prop-tags">
+      <span class="tag">Family Living</span>
+      <span class="tag">Safe Design</span>
+      <span class="tag">Healthcare Ready</span>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-kalinga" onclick="handleOverlayClick(event, 'kalinga')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Kalinga Suites Details">
+
+    <!-- Close -->
+    <div class="modal-close">
+      <button class="modal-close-btn" onclick="closeModal('kalinga')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hero -->
+    <div class="modal-hero">
+      <img src="https://ik.imagekit.io/r0ogw01pg/Kalinga%20Suites%20-%20Pasig.png" alt="Kalinga Suites">
+      <div class="modal-hero-overlay"></div>
+
+      <div class="modal-hero-badge">Under Construction</div>
+
+      <div class="modal-hero-bottom">
+        <div class="modal-hero-location">
+          Meralco Ave cor. Shaw Blvd · Ortigas Center · Pasig, 1600
+        </div>
+        <div class="modal-hero-title">Kalinga Suites</div>
+      </div>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- Price -->
+      <div class="modal-price-bar">
+        <div>
+          <div class="modal-price">₱14,000,000 — ₱48,000,000</div>
+          <div class="modal-price-label">Multi-Generational Residential</div>
+        </div>
+        <button class="modal-enquire">Enquire Now</button>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">
+        Kalinga Suites is designed around the Filipino value of care and togetherness. Located in Ortigas Center, it creates a safe and inclusive environment for multi-generational families. Every detail—from wide hallways to safety-focused finishes—ensures comfort, accessibility, and peace of mind for both the elderly and young children.
+      </p>
+
+      <!-- Info -->
+      <div class="modal-info-grid">
+        <div class="modal-info-cell">
+          <div class="lbl">Property Type</div>
+          <div class="val">Multi-Generational Residential</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Status</div>
+          <div class="val">Under Construction</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Move-In Date</div>
+          <div class="val">January 2027</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Unit Size</div>
+          <div class="val">70 – 200 sq yds (3BR Suites)</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Developer</div>
+          <div class="val">Community First Homes</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Parking</div>
+          <div class="val">Tandem Parking Available</div>
+        </div>
+      </div>
+
+      <!-- USP -->
+      <div class="modal-usp">
+        <div class="usp-label">Unique Selling Point</div>
+        <p>
+          "The only development in Ortigas designed specifically for elderly and toddler safety."
+        </p>
+      </div>
+
+      <!-- Unique Feature -->
+      <div class="unique-feature">
+        <div class="uf-label">⬡ Signature Feature</div>
+        <p>
+          The <strong>"Care-Link Hub"</strong> is a dedicated floor with a 24/7 clinic and wellness center, offering medical checkups, therapy sessions, and pediatric care within the building.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="modal-section">
+        <div class="modal-section-title">Building Features</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag gold">Non-Slip Flooring</span>
+          <span class="modal-tag gold">1.5m Wide Hallways</span>
+          <span class="modal-tag gold">Ramp Access</span>
+          <span class="modal-tag gold">Nurse-Call System</span>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+      <div class="modal-section">
+        <div class="modal-section-title">Amenities</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag">On-Site Nurse Station</span>
+          <span class="modal-tag">Day-Care Center</span>
+          <span class="modal-tag">Playground</span>
+          <span class="modal-tag">Community Hall</span>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="modal-section">
+        <div class="modal-section-title">Payment Terms</div>
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="pct">10%</div>
+            <div class="desc">Spot Payment</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">10%</div>
+            <div class="desc">18 Months Installment</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">80%</div>
+            <div class="desc">Financing</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby -->
+      <div class="modal-section">
+        <div class="modal-section-title">Nearby Landmarks</div>
+        <div class="landmarks-list">
+          <span class="landmark">The Medical City</span>
+          <span class="landmark">SM Megamall</span>
+          <span class="landmark">Tektite Towers</span>
+          <span class="landmark">University of Asia and the Pacific</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Kalings Suites-->
+
+<!--Celestia Residences-->
+<div class="prop-card fade-up" data-tags="under-construction bgc luxury high-rise" onclick="openModal('celestia')">
+  <div class="prop-img">
+    <img src="https://ik.imagekit.io/r0ogw01pg/Celestia%20Residences%20-%20BGC.png" alt="Celestia Residences">
+    <div class="prop-status">Under Construction</div>
+    <div class="prop-overlay">
+      <button class="prop-overlay-cta">View Details →</button>
+    </div>
+  </div>
+
+  <div class="prop-body">
+    <div class="prop-location">Taguig City (BGC), Metro Manila</div>
+    <div class="prop-name">Celestia Residences</div>
+    <div class="prop-price">₱18,000,000 – ₱70,000,000</div>
+
+    <div class="prop-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+        High-Rise Luxury Residential
+      </span>
+
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18"/>
+          <path d="M9 21V9"/>
+        </svg>
+        40–180 sq yds
+      </span>
+    </div>
+
+    <div class="prop-tags">
+      <span class="tag">Sky Living</span>
+      <span class="tag">Luxury</span>
+      <span class="tag">BGC Prime</span>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-celestia" onclick="handleOverlayClick(event, 'celestia')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Celestia Residences Details">
+
+    <!-- Close -->
+    <div class="modal-close">
+      <button class="modal-close-btn" onclick="closeModal('celestia')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hero -->
+    <div class="modal-hero">
+      <img src="https://ik.imagekit.io/r0ogw01pg/Celestia%20Residences%20-%20BGC.png" alt="Celestia Residences">
+      <div class="modal-hero-overlay"></div>
+
+      <div class="modal-hero-badge">Under Construction</div>
+
+      <div class="modal-hero-bottom">
+        <div class="modal-hero-location">
+          Uptown District · Bonifacio Global City · Taguig City, 1634
+        </div>
+        <div class="modal-hero-title">Celestia Residences</div>
+      </div>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- Price -->
+      <div class="modal-price-bar">
+        <div>
+          <div class="modal-price">₱18,000,000 — ₱70,000,000</div>
+          <div class="modal-price-label">High-Rise Luxury Residential</div>
+        </div>
+        <button class="modal-enquire">Enquire Now</button>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">
+        Celestia Residences redefines luxury living by elevating it above the skyline of Bonifacio Global City. Designed for visionaries and achievers, it offers a futuristic, serene lifestyle high above the city. With its luminous interiors and breathtaking altitude, residents experience a sense of calm and inspiration drawn from the vastness of the sky.
+      </p>
+
+      <!-- Info -->
+      <div class="modal-info-grid">
+        <div class="modal-info-cell">
+          <div class="lbl">Property Type</div>
+          <div class="val">High-Rise Luxury Residential</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Status</div>
+          <div class="val">Under Construction</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Move-In Date</div>
+          <div class="val">Q4 2029</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Unit Size</div>
+          <div class="val">40 – 180 sq yds</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Developer</div>
+          <div class="val">Apex Sky Developments</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Parking</div>
+          <div class="val">Priority for Upper Floors</div>
+        </div>
+      </div>
+
+      <!-- USP -->
+      <div class="modal-usp">
+        <div class="usp-label">Unique Selling Point</div>
+        <p>
+          "The highest residential balconies in the Philippines with a dedicated star-gazing observatory."
+        </p>
+      </div>
+
+      <!-- Unique Feature -->
+      <div class="unique-feature">
+        <div class="uf-label">⬡ Signature Feature</div>
+        <p>
+          The <strong>"Stellar Observatory"</strong> on the 75th floor features professional telescopes and live celestial mapping, allowing residents to explore the cosmos from their own residence.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="modal-section">
+        <div class="modal-section-title">Building Features</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag gold">Star-Gazing Observatory</span>
+          <span class="modal-tag gold">Soundproof Windows</span>
+          <span class="modal-tag gold">Structural Dampers</span>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+      <div class="modal-section">
+        <div class="modal-section-title">Amenities</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag">Planetarium Cinema</span>
+          <span class="modal-tag">Glass Skywalk</span>
+          <span class="modal-tag">Observatory Deck</span>
+          <span class="modal-tag">Infinity Pool</span>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="modal-section">
+        <div class="modal-section-title">Payment Terms</div>
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="pct">20%</div>
+            <div class="desc">DP over 60 Months</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">80%</div>
+            <div class="desc">Bank Financing</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby -->
+      <div class="modal-section">
+        <div class="modal-section-title">Nearby Landmarks</div>
+        <div class="landmarks-list">
+          <span class="landmark">Uptown Mall</span>
+          <span class="landmark">British School Manila</span>
+          <span class="landmark">Mitsukoshi BGC</span>
+          <span class="landmark">JP Morgan Chase Office</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Celestia Residences-->
+
+
+   
+  </div>
+</div> 
+
+
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p>© 2025 Dream House Premium Real Estate. All rights reserved. (Demo)</p>
+  <span>Privacy · Terms · Sitemap</span>
+</footer>
+
+<!--chat icon-->
+
+
+<!--chat icon-->
+
+<!-- ═══════════════════════════════════════
+     MODAL: The Alabaster Tower
+════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-alabaster" onclick="handleOverlayClick(event, 'alabaster')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="The Alabaster Tower Details">
+
+    <!-- Sticky close bar -->
+    <div class="modal-close">
+      <button class="modal-close-btn" onclick="closeModal('alabaster')" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="modal-hero">
+      <img src=" https://ik.imagekit.io/r0ogw01pg/The%20Alabaster%20Tower%20-%20Makati.png" alt="The Alabaster Tower">
+      <div class="modal-hero-overlay"></div>
+      <div class="modal-hero-badge">RFO — Available Now</div>
+      <div class="modal-hero-bottom">
+        <div class="modal-hero-location">122 Ayala Ave cor. Paseo de Roxas · Makati City, 1226</div>
+        <div class="modal-hero-title">The Alabaster Tower</div>
+      </div>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- Price bar -->
+      <div class="modal-price-bar">
+        <div>
+          <div class="modal-price">₱25,000,000 — ₱180,000,000</div>
+          <div class="modal-price-label">Price Range · Mixed-Use Residential &amp; Grade A Office</div>
+        </div>
+        <button class="modal-enquire">Enquire Now</button>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">
+        Standing at the historic intersection of Ayala Avenue and Paseo de Roxas, The Alabaster Tower represents the pinnacle of cosmopolitan living in the Philippines' primary financial hub. The building's striking white-glass facade reflects the city's energy while providing a serene, soundproof sanctuary for its residents and corporate tenants. It is designed for the modern magnate who values a seamless transition between a high-powered professional life and an ultra-luxurious home environment.
+      </p>
+
+      <!-- Key Details Grid -->
+      <div class="modal-info-grid">
+        <div class="modal-info-cell">
+          <div class="lbl">Property Type</div>
+          <div class="val">Mixed-Use (Residential &amp; Grade A Office)</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Status</div>
+          <div class="val">Ready to Move In (RFO)</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Move-In Date</div>
+          <div class="val">Available Now</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Unit Size</div>
+          <div class="val">60 – 350 sq yds (Penthouse)</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Developer</div>
+          <div class="val">Alabaster Elite Development Corp.</div>
+        </div>
+        <div class="modal-info-cell">
+          <div class="lbl">Parking</div>
+          <div class="val">3 Levels Underground · 2 Slots/Unit</div>
+        </div>
+      </div>
+
+      <!-- USP -->
+      <div class="modal-usp">
+        <div class="usp-label">Unique Selling Point</div>
+        <p>"The most prestigious corporate address in the Makati CBD — with unmatched 360-degree views spanning Manila Bay to the Sierra Madre mountains."</p>
+      </div>
+
+      <!-- Unique Feature -->
+      <div class="unique-feature">
+        <div class="uf-label">⬡ Signature Feature</div>
+        <p>The <strong>Sky-High Infinity Pool</strong> on the 60th floor features a transparent acrylic edge, giving swimmers the sensation of floating directly above the Makati skyline — with a view that stretches from Manila Bay to the Sierra Madre mountains.</p>
+      </div>
+
+      <!-- Features & Amenities -->
+      <div class="modal-section">
+        <div class="modal-section-title">Building Features</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag gold">Full-Glass "Alabaster" Curtain Wall</span>
+          <span class="modal-tag gold">High-Speed Smart Elevators</span>
+          <span class="modal-tag gold">LEED Platinum Certified</span>
+          <span class="modal-tag gold">Fiber-Optic Backbone</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Amenities</div>
+        <div class="modal-tags-list">
+          <span class="modal-tag">Rooftop Business Lounge</span>
+          <span class="modal-tag">Sky-High Infinity Pool (60F)</span>
+          <span class="modal-tag">24/7 Concierge</span>
+          <span class="modal-tag">Fitness Center</span>
+        </div>
+      </div>
+
+      <!-- Payment Terms -->
+      <div class="modal-section">
+        <div class="modal-section-title">Payment Terms</div>
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="pct">10%</div>
+            <div class="desc">Spot Downpayment<br>Upon reservation</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">20%</div>
+            <div class="desc">Spread over<br>48 months</div>
+          </div>
+          <div class="payment-step">
+            <div class="pct">70%</div>
+            <div class="desc">Bank Financing<br>Upon turnover</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby Landmarks -->
+      <div class="modal-section">
+        <div class="modal-section-title">Nearby Landmarks</div>
+        <div class="landmarks-list">
+          <span class="landmark">Ayala Triangle Gardens</span>
+          <span class="landmark">Greenbelt Mall</span>
+          <span class="landmark">Makati Medical Center</span>
+          <span class="landmark">Philippine Stock Exchange</span>
+        </div>
+      </div>
+
+    </div><!-- /modal-content -->
+  </div><!-- /modal -->
+</div><!-- /modal-overlay -->
+
+
+<script>
+  // ── Fade-up observer
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── Modal open/close
+  function openModal(id) {
+    const overlay = document.getElementById('modal-' + id);
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Scroll modal to top each open
+    overlay.querySelector('.modal').scrollTop = 0;
+  }
+  function closeModal(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e, id) {
+    if (e.target === document.getElementById('modal-' + id)) closeModal(id);
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+
+  // ── Filtering
+  function filterCards(tag, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#propsGrid .prop-card').forEach(card => {
+      if (tag === 'all') {
+        card.style.display = '';
+      } else {
+        const tags = (card.dataset.tags || '').split(' ');
+        card.style.display = tags.includes(tag) ? '' : 'none';
+      }
+    });
+  }
+
+  // ── Hamburger menu
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
+
+<script type='text/javascript'>
+  function initEmbeddedMessaging() {
+    try {
+      embeddedservice_bootstrap.settings.language = 'en_US';
+      embeddedservice_bootstrap.init(
+        '00DKa00000Uxd6c',
+        'Dream_House_Website',
+        'https://ap1763032291393.my.site.com/ESWDreamHouseWebsite1774503133873',
+        {
+          scrt2URL: 'https://ap1763032291393.my.salesforce-scrt.com'
+        }
+      );
+    } catch (err) {
+      console.error('Error loading Embedded Messaging: ', err);
+    }
+  };
+</script>
+<script
+  type='text/javascript'
+  src='https://ap1763032291393.my.site.com/ESWDreamHouseWebsite1774503133873/assets/js/bootstrap.min.js'
+  onload='initEmbeddedMessaging()'>
+</script>
+</body>
+</html>
